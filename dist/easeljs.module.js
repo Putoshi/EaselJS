@@ -1900,9 +1900,9 @@ function createCanvas(width = 1, height = 1) {
   if (window.createjs !== undefined && window.createjs.createCanvas !== undefined) {
     c = window.createjs.createCanvas();
   }
-  if (HTMLCanvasElement) {
-    c = new HTMLCanvasElement();
-  }
+  if (c === undefined) {
+		c = document.createElement('canvas');
+	}
   if (c !== undefined) {
     c.width = width;
     c.height = height;
